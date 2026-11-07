@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-theme="royal-diya">
-  <!-- Sparkle Particle Layer -->
+  <!-- Sparkle Particle Layer (Non-interactive) -->
   <div id="particle-canvas" aria-hidden="true"></div>
 
   <!-- Toast Notification Shelf -->
@@ -33,7 +33,7 @@
         <span class="stat-pill" title="Flame Fragments Recovered"><span class="pill-icon">🔥</span> <span id="hdr-fragments">0/7</span></span>
       </div>
 
-      <button id="mobile-menu-btn" class="nav-toggle-btn" aria-label="Toggle navigation menu">
+      <button type="button" id="mobile-menu-btn" class="nav-toggle-btn" aria-label="Toggle navigation menu">
         <span class="toggle-bar"></span>
         <span class="toggle-bar"></span>
         <span class="toggle-bar"></span>
@@ -43,19 +43,19 @@
     <!-- Responsive Navigation Bar -->
     <nav id="main-nav" class="nav-bar">
       <ul class="nav-list">
-        <li><button class="nav-link active" data-section="sec-home">🏠 Home</button></li>
-        <li><button class="nav-link" data-section="sec-investigation">🕵 Investigation</button></li>
-        <li><button class="nav-link" data-section="sec-escape">🧩 Escape Rooms</button></li>
-        <li><button class="nav-link" data-section="sec-fragments">🪔 Flame Fragments</button></li>
-        <li><button class="nav-link" data-section="sec-evidence">📜 Evidence Board</button></li>
-        <li><button class="nav-link" data-section="sec-suspects">👤 Suspects</button></li>
-        <li><button class="nav-link" data-section="sec-inventory">🎒 Inventory</button></li>
-        <li><button class="nav-link" data-section="sec-achievements">🏆 Achievements</button></li>
-        <li><button class="nav-link" data-section="sec-statistics">📈 Statistics</button></li>
-        <li><button class="nav-link" data-section="sec-analytics">📊 Analytics</button></li>
-        <li><button class="nav-link" data-section="sec-save">💾 Save Manager</button></li>
-        <li><button class="nav-link" data-section="sec-settings">⚙ Settings</button></li>
-        <li><button class="nav-link" data-section="sec-help">❓ Help</button></li>
+        <li><button type="button" class="nav-link active" data-section="sec-home">🏠 Home</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-investigation">🕵 Investigation</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-escape">🧩 Escape Rooms</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-fragments">🪔 Flame Fragments</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-evidence">📜 Evidence Board</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-suspects">👤 Suspects</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-inventory">🎒 Inventory</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-achievements">🏆 Achievements</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-statistics">📈 Statistics</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-analytics">📊 Analytics</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-save">💾 Save Manager</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-settings">⚙ Settings</button></li>
+        <li><button type="button" class="nav-link" data-section="sec-help">❓ Help</button></li>
       </ul>
     </nav>
   </header>
@@ -73,9 +73,9 @@
         </p>
 
         <div class="hero-actions">
-          <button class="btn btn-primary btn-large" id="hero-btn-begin">🕵 Begin Investigation</button>
-          <button class="btn btn-secondary btn-large" id="hero-btn-profile">👤 Detective Dossier</button>
-          <button class="btn btn-accent btn-large" id="hero-btn-daily">🎁 Daily Diwali Blessing</button>
+          <button type="button" class="btn btn-primary btn-large" id="hero-btn-begin" data-jump="sec-investigation">🕵 Begin Investigation</button>
+          <button type="button" class="btn btn-secondary btn-large" id="hero-btn-profile" data-action="open-profile">👤 Detective Dossier</button>
+          <button type="button" class="btn btn-accent btn-large" id="hero-btn-daily" data-action="daily-blessing">🎁 Daily Diwali Blessing</button>
         </div>
       </div>
 
@@ -137,7 +137,7 @@
             <h3>Explore 15 Districts</h3>
           </div>
           <p>Unearth hidden clues, sacred festival lore, and rare collectibles from Ayodhya Palace to the Whispering Forest.</p>
-          <button class="btn btn-outline" data-jump="sec-investigation">Scout Locations</button>
+          <button type="button" class="btn btn-outline" data-jump="sec-investigation">Scout Locations</button>
         </div>
 
         <div class="card module-card">
@@ -146,7 +146,7 @@
             <h3>Chamber Escape Rooms</h3>
           </div>
           <p>Challenge pattern locks, number safes, symbol sequences, 200 festival riddles, and memory vaults.</p>
-          <button class="btn btn-outline" data-jump="sec-escape">Enter Chambers</button>
+          <button type="button" class="btn btn-outline" data-jump="sec-escape">Enter Chambers</button>
         </div>
 
         <div class="card module-card">
@@ -155,7 +155,7 @@
             <h3>Interrogate Suspects</h3>
           </div>
           <p>Scrutinize the Merchant, Guard, Priest, Inventor, and others. Cross-check alibis against your Evidence Board.</p>
-          <button class="btn btn-outline" data-jump="sec-suspects">Cross-Examine</button>
+          <button type="button" class="btn btn-outline" data-jump="sec-suspects">Cross-Examine</button>
         </div>
       </div>
 
@@ -163,7 +163,7 @@
       <div class="card card-ornate">
         <div class="card-header">
           <h3>📜 Royal Gazette & Case Log</h3>
-          <button class="btn btn-sm" id="btn-refresh-log">Clear Old Log</button>
+          <button type="button" class="btn btn-sm" id="btn-refresh-log" data-action="clear-log">Clear Old Log</button>
         </div>
         <div id="live-case-feed" class="case-feed-list"></div>
       </div>
@@ -207,10 +207,10 @@
       </div>
 
       <div class="puzzle-tabs-shelf">
-        <button class="tab-btn active" data-ptab="tab-vault">🔒 Vault Safes</button>
-        <button class="tab-btn" data-ptab="tab-memory">🎴 Rangoli Memory</button>
-        <button class="tab-btn" data-ptab="tab-riddles">📜 200 Riddles Engine</button>
-        <button class="tab-btn" data-ptab="tab-logic">⚖ Logic Chamber</button>
+        <button type="button" class="tab-btn active" data-ptab="tab-vault">🔒 Vault Safes</button>
+        <button type="button" class="tab-btn" data-ptab="tab-memory">🎴 Rangoli Memory</button>
+        <button type="button" class="tab-btn" data-ptab="tab-riddles">📜 200 Riddles Engine</button>
+        <button type="button" class="tab-btn" data-ptab="tab-logic">⚖ Logic Chamber</button>
       </div>
 
       <!-- Tab 1: Vault Safe -->
@@ -227,9 +227,9 @@
           </div>
 
           <div class="vault-actions">
-            <button class="btn btn-primary" id="btn-submit-safe">🔓 Attempt Safe Combination</button>
-            <button class="btn btn-secondary" id="btn-new-safe">🔄 Generate New Safe</button>
-            <button class="btn btn-accent" id="btn-safe-hint">💡 Consult Detective Lens</button>
+            <button type="button" class="btn btn-primary" id="btn-submit-safe" data-action="submit-safe">🔓 Attempt Safe Combination</button>
+            <button type="button" class="btn btn-secondary" id="btn-new-safe" data-action="new-safe">🔄 Generate New Safe</button>
+            <button type="button" class="btn btn-accent" id="btn-safe-hint" data-action="safe-hint">💡 Consult Detective Lens</button>
           </div>
         </div>
       </div>
@@ -240,7 +240,7 @@
           <div class="memory-meta">
             <div><strong>Pairs Discovered:</strong> <span id="memory-pairs-count">0 / 8</span></div>
             <div><strong>Moves Made:</strong> <span id="memory-moves-count">0</span></div>
-            <button class="btn btn-sm btn-outline" id="btn-reset-memory">Reset Board</button>
+            <button type="button" class="btn btn-sm btn-outline" id="btn-reset-memory" data-action="reset-memory">Reset Board</button>
           </div>
           <div id="memory-grid" class="memory-grid"></div>
         </div>
@@ -251,10 +251,10 @@
         <div class="card card-ornate riddle-stage">
           <div class="riddle-tier-selector">
             <span>Riddle Difficulty:</span>
-            <button class="chip chip-active" data-rtier="easy">Easy (50)</button>
-            <button class="chip" data-rtier="medium">Medium (50)</button>
-            <button class="chip" data-rtier="hard">Hard (50)</button>
-            <button class="chip" data-rtier="expert">Expert (50)</button>
+            <button type="button" class="chip chip-active" data-rtier="easy">Easy (50)</button>
+            <button type="button" class="chip" data-rtier="medium">Medium (50)</button>
+            <button type="button" class="chip" data-rtier="hard">Hard (50)</button>
+            <button type="button" class="chip" data-rtier="expert">Expert (50)</button>
           </div>
 
           <div class="riddle-card-body">
@@ -266,7 +266,7 @@
             <div class="riddle-footer-meta">
               <span>Riddles Solved: <strong id="riddles-solved-counter">0</strong></span>
               <span>Riddle Streak: <strong id="riddles-streak-counter">0</strong></span>
-              <button class="btn btn-sm btn-secondary" id="btn-next-riddle">Next Riddle ➡</button>
+              <button type="button" class="btn btn-sm btn-secondary" id="btn-next-riddle" data-action="next-riddle">Next Riddle ➡</button>
             </div>
           </div>
         </div>
@@ -304,7 +304,7 @@
         <div class="final-verdict-banner" id="verdict-banner">
           <h3>👑 Final Accusation Chamber Locked</h3>
           <p>Collect all 7 fragments through district quests, escape chambers, and interrogations to initiate the royal trial.</p>
-          <button class="btn btn-gold btn-large" id="btn-summon-tribunal" disabled>Initiate Royal Accusation</button>
+          <button type="button" class="btn btn-gold btn-large" id="btn-summon-tribunal" data-action="open-tribunal" disabled>Initiate Royal Accusation</button>
         </div>
       </div>
     </section>
@@ -329,7 +329,7 @@
             <option value="Alibi">Suspect Alibis</option>
             <option value="Secret">Hidden Secrets</option>
           </select>
-          <button class="btn btn-primary" id="btn-add-detective-note">➕ Add Detective Note</button>
+          <button type="button" class="btn btn-primary" id="btn-add-detective-note" data-action="open-note-modal">➕ Add Detective Note</button>
         </div>
       </div>
 
@@ -355,11 +355,11 @@
 
       <div class="filter-bar">
         <div class="filter-controls">
-          <button class="chip chip-active" data-irarity="all">All Rarities</button>
-          <button class="chip" data-irarity="Common">Common</button>
-          <button class="chip" data-irarity="Rare">Rare</button>
-          <button class="chip" data-irarity="Epic">Epic</button>
-          <button class="chip" data-irarity="Legendary">Legendary</button>
+          <button type="button" class="chip chip-active" data-irarity="all">All Rarities</button>
+          <button type="button" class="chip" data-irarity="Common">Common</button>
+          <button type="button" class="chip" data-irarity="Rare">Rare</button>
+          <button type="button" class="chip" data-irarity="Epic">Epic</button>
+          <button type="button" class="chip" data-irarity="Legendary">Legendary</button>
         </div>
         <span class="inventory-counter-text" id="inventory-counter-label">Items Owned: 0</span>
       </div>
@@ -390,16 +390,16 @@
         </div>
 
         <div class="category-chips-row" id="achieve-category-chips">
-          <button class="chip chip-active" data-acat="all">All Badges</button>
-          <button class="chip" data-acat="Investigation">Investigation</button>
-          <button class="chip" data-acat="Exploration">Exploration</button>
-          <button class="chip" data-acat="Collection">Collection</button>
-          <button class="chip" data-acat="Escape Rooms">Escape Rooms</button>
-          <button class="chip" data-acat="Riddles">Riddles</button>
-          <button class="chip" data-acat="Puzzles">Puzzles</button>
-          <button class="chip" data-acat="Festival Mastery">Festival Mastery</button>
-          <button class="chip" data-acat="Time Challenges">Time Challenges</button>
-          <button class="chip" data-acat="Hidden Secrets">Hidden Secrets</button>
+          <button type="button" class="chip chip-active" data-acat="all">All Badges</button>
+          <button type="button" class="chip" data-acat="Investigation">Investigation</button>
+          <button type="button" class="chip" data-acat="Exploration">Exploration</button>
+          <button type="button" class="chip" data-acat="Collection">Collection</button>
+          <button type="button" class="chip" data-acat="Escape Rooms">Escape Rooms</button>
+          <button type="button" class="chip" data-acat="Riddles">Riddles</button>
+          <button type="button" class="chip" data-acat="Puzzles">Puzzles</button>
+          <button type="button" class="chip" data-acat="Festival Mastery">Festival Mastery</button>
+          <button type="button" class="chip" data-acat="Time Challenges">Time Challenges</button>
+          <button type="button" class="chip" data-acat="Hidden Secrets">Hidden Secrets</button>
         </div>
       </div>
 
@@ -483,10 +483,10 @@
           </div>
           <p>Local state is continuously synchronized to browser memory. You can trigger manual checkpoints at any pivotal moment.</p>
           <div class="action-btn-stack">
-            <button class="btn btn-primary" id="btn-manual-save">💾 Create Manual Save</button>
-            <button class="btn btn-secondary" id="btn-quick-load">🔄 Load Last Checkpoint</button>
-            <button class="btn btn-outline" id="btn-backup-save">📦 Generate In-Memory Backup</button>
-            <button class="btn btn-danger" id="btn-reset-save">⚠️ Factory Reset Save Data</button>
+            <button type="button" class="btn btn-primary" id="btn-manual-save" data-action="manual-save">💾 Create Manual Save</button>
+            <button type="button" class="btn btn-secondary" id="btn-quick-load" data-action="quick-load">🔄 Load Last Checkpoint</button>
+            <button type="button" class="btn btn-outline" id="btn-backup-save" data-action="backup-save">📦 Generate In-Memory Backup</button>
+            <button type="button" class="btn btn-danger" id="btn-reset-save" data-action="reset-save">⚠️ Factory Reset Save Data</button>
           </div>
           <div class="save-timestamp" id="last-save-time-label">Last Saved: Just now</div>
         </div>
@@ -497,11 +497,11 @@
           </div>
           <p>Export individual segments or the complete royal dossier to disk as downloadable JSON.</p>
           <div class="action-btn-stack">
-            <button class="btn btn-outline" id="btn-export-all">📥 Export Complete Save (.json)</button>
-            <button class="btn btn-outline" id="btn-export-profile">👤 Export Detective Profile</button>
-            <button class="btn btn-outline" id="btn-export-evidence">📜 Export Evidence Ledger</button>
-            <button class="btn btn-outline" id="btn-export-inventory">🎒 Export Satchel Inventory</button>
-            <button class="btn btn-outline" id="btn-export-stats">📈 Export Statistics Sheet</button>
+            <button type="button" class="btn btn-outline" id="btn-export-all" data-action="export-all">📥 Export Complete Save (.json)</button>
+            <button type="button" class="btn btn-outline" id="btn-export-profile" data-action="export-profile">👤 Export Detective Profile</button>
+            <button type="button" class="btn btn-outline" id="btn-export-evidence" data-action="export-evidence">📜 Export Evidence Ledger</button>
+            <button type="button" class="btn btn-outline" id="btn-export-inventory" data-action="export-inventory">🎒 Export Satchel Inventory</button>
+            <button type="button" class="btn btn-outline" id="btn-export-stats" data-action="export-stats">📈 Export Statistics Sheet</button>
           </div>
         </div>
 
@@ -604,7 +604,7 @@
             <label for="setting-gemini-key">Gemini API Key:</label>
             <div class="api-key-row">
               <input type="password" id="setting-gemini-key" placeholder="Enter your Gemini API key (AIzaSy...)" class="input-text">
-              <button class="btn btn-secondary" id="btn-test-gemini">📡 Test Oracle Connection</button>
+              <button type="button" class="btn btn-secondary" id="btn-test-gemini" data-action="test-gemini">📡 Test Oracle Connection</button>
             </div>
             <span class="hint-caption">Your key is stored strictly within browser localStorage and never transmitted elsewhere.</span>
           </div>
@@ -659,12 +659,12 @@
 
   </main>
 
-  <!-- MODAL: PROFILE DOSSIER -->
-  <div id="modal-profile" class="modal-backdrop" aria-hidden="true">
+  <!-- MODAL: PROFILE DOSSIER (style="display:none;" prevents initial click-blocking) -->
+  <div id="modal-profile" class="modal-backdrop" style="display:none;" aria-hidden="true">
     <div class="modal-box card-ornate" role="dialog" aria-modal="true" aria-labelledby="modal-profile-title">
       <div class="modal-header">
         <h3 id="modal-profile-title">👤 Royal Detective Dossier</h3>
-        <button class="modal-close-btn" data-close-modal="modal-profile" aria-label="Close modal">&times;</button>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-profile" aria-label="Close modal">&times;</button>
       </div>
       <div class="modal-body">
         <div class="setting-item">
@@ -675,15 +675,15 @@
         <div class="setting-item">
           <label>Avatar Sigil:</label>
           <div class="avatar-sigil-grid" id="avatar-sigil-picker">
-            <button class="avatar-option active" data-sigil="🕵">🕵</button>
-            <button class="avatar-option" data-sigil="👑">👑</button>
-            <button class="avatar-option" data-sigil="🏮">🏮</button>
-            <button class="avatar-option" data-sigil="🔥">🔥</button>
-            <button class="avatar-option" data-sigil="🪔">🪔</button>
-            <button class="avatar-option" data-sigil="🦉">🦉</button>
-            <button class="avatar-option" data-sigil="🐅">🐅</button>
-            <button class="avatar-option" data-sigil="🐘">🐘</button>
-            <button class="avatar-option" data-sigil="🏰">🏰</button>
+            <button type="button" class="avatar-option active" data-sigil="🕵">🕵</button>
+            <button type="button" class="avatar-option" data-sigil="👑">👑</button>
+            <button type="button" class="avatar-option" data-sigil="🏮">🏮</button>
+            <button type="button" class="avatar-option" data-sigil="🔥">🔥</button>
+            <button type="button" class="avatar-option" data-sigil="🪔">🪔</button>
+            <button type="button" class="avatar-option" data-sigil="🦉">🦉</button>
+            <button type="button" class="avatar-option" data-sigil="🐅">🐅</button>
+            <button type="button" class="avatar-option" data-sigil="🐘">🐘</button>
+            <button type="button" class="avatar-option" data-sigil="🏰">🏰</button>
           </div>
         </div>
 
@@ -698,18 +698,18 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" id="btn-save-profile">Save Dossier</button>
-        <button class="btn btn-outline" data-close-modal="modal-profile">Cancel</button>
+        <button type="button" class="btn btn-primary" id="btn-save-profile" data-action="save-profile">Save Dossier</button>
+        <button type="button" class="btn btn-outline" data-close-modal="modal-profile">Cancel</button>
       </div>
     </div>
   </div>
 
   <!-- MODAL: INTERROGATION / SUSPECT -->
-  <div id="modal-interrogation" class="modal-backdrop" aria-hidden="true">
+  <div id="modal-interrogation" class="modal-backdrop" style="display:none;" aria-hidden="true">
     <div class="modal-box card-ornate modal-wide" role="dialog" aria-modal="true">
       <div class="modal-header">
         <h3 id="interrogate-modal-title">👤 Interrogating Suspect</h3>
-        <button class="modal-close-btn" data-close-modal="modal-interrogation">&times;</button>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-interrogation">&times;</button>
       </div>
       <div class="modal-body interrogation-body">
         <div class="interrogate-bio-column">
@@ -723,8 +723,8 @@
           <p class="alibi-quote" id="interrogate-alibi">"I was inspecting the palace fireworks."</p>
 
           <div class="interrogate-actions-vertical">
-            <button class="btn btn-sm btn-outline" id="btn-toggle-suspect-mark">🚩 Mark as Chief Suspect</button>
-            <button class="btn btn-sm btn-outline" id="btn-clear-suspect">🕊 Clear of Suspicion</button>
+            <button type="button" class="btn btn-sm btn-outline" id="btn-toggle-suspect-mark" data-action="toggle-suspect-mark">🚩 Mark as Chief Suspect</button>
+            <button type="button" class="btn btn-sm btn-outline" id="btn-clear-suspect" data-action="clear-suspect">🕊 Clear of Suspicion</button>
           </div>
         </div>
 
@@ -735,22 +735,22 @@
 
           <div class="ai-oracle-prompt-row">
             <input type="text" id="interrogate-custom-input" placeholder="Type a custom inquiry for Gemini Oracle..." class="input-text">
-            <button class="btn btn-primary btn-sm" id="btn-ask-custom-oracle">✨ Ask AI</button>
+            <button type="button" class="btn btn-primary btn-sm" id="btn-ask-custom-oracle" data-action="ask-oracle">✨ Ask AI</button>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-outline" data-close-modal="modal-interrogation">Conclude Questioning</button>
+        <button type="button" class="btn btn-outline" data-close-modal="modal-interrogation">Conclude Questioning</button>
       </div>
     </div>
   </div>
 
   <!-- MODAL: NOTE CREATION -->
-  <div id="modal-note" class="modal-backdrop" aria-hidden="true">
+  <div id="modal-note" class="modal-backdrop" style="display:none;" aria-hidden="true">
     <div class="modal-box card-ornate" role="dialog" aria-modal="true">
       <div class="modal-header">
         <h3>📝 Add Detective Ledger Note</h3>
-        <button class="modal-close-btn" data-close-modal="modal-note">&times;</button>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-note">&times;</button>
       </div>
       <div class="modal-body">
         <div class="setting-item">
@@ -772,18 +772,18 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" id="btn-save-note">Pin Note to Board</button>
-        <button class="btn btn-outline" data-close-modal="modal-note">Cancel</button>
+        <button type="button" class="btn btn-primary" id="btn-save-note" data-action="save-note">Pin Note to Board</button>
+        <button type="button" class="btn btn-outline" data-close-modal="modal-note">Cancel</button>
       </div>
     </div>
   </div>
 
   <!-- MODAL: FINAL ACCUSATION TRIBUNAL -->
-  <div id="modal-tribunal" class="modal-backdrop" aria-hidden="true">
+  <div id="modal-tribunal" class="modal-backdrop" style="display:none;" aria-hidden="true">
     <div class="modal-box card-ornate modal-wide" role="dialog" aria-modal="true">
       <div class="modal-header">
         <h3>⚖ The Royal Diwali Accusation Tribunal</h3>
-        <button class="modal-close-btn" data-close-modal="modal-tribunal">&times;</button>
+        <button type="button" class="modal-close-btn" data-close-modal="modal-tribunal">&times;</button>
       </div>
       <div class="modal-body">
         <p class="tribunal-lead">
@@ -814,14 +814,14 @@
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-gold btn-large" id="btn-execute-verdict">👑 Deliver Final Verdict</button>
-        <button class="btn btn-outline" data-close-modal="modal-tribunal">Retreat & Gather More Clues</button>
+        <button type="button" class="btn btn-gold btn-large" id="btn-execute-verdict" data-action="execute-verdict">👑 Deliver Final Verdict</button>
+        <button type="button" class="btn btn-outline" data-close-modal="modal-tribunal">Retreat & Gather More Clues</button>
       </div>
     </div>
   </div>
 
   <!-- MODAL: ENDING VERDICT -->
-  <div id="modal-ending" class="modal-backdrop" aria-hidden="true">
+  <div id="modal-ending" class="modal-backdrop" style="display:none;" aria-hidden="true">
     <div class="modal-box card-ornate modal-wide modal-center" role="dialog" aria-modal="true">
       <div class="modal-header">
         <h3 id="ending-modal-title">Diwali Verdict Proclaimed</h3>
@@ -833,7 +833,7 @@
         <div class="ending-stats-summary" id="ending-stats-box"></div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary" id="btn-continue-post-ending">Continue Patrolling Ayodhya</button>
+        <button type="button" class="btn btn-primary" id="btn-continue-post-ending" data-action="close-ending">Continue Patrolling Ayodhya</button>
       </div>
     </div>
   </div>
