@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#800020">
+  <meta name="description" content="Mystery of the Eternal Diya by Subin Khullar - An immersive Diwali detective RPG, treasure hunt, and escape room mystery.">
+  <title>Mystery of the Eternal Diya 🪔 by Subin Khullar</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-theme="royal-diya">
+  <!-- Sparkle Particle Layer -->
+  <div id="particle-canvas" aria-hidden="true"></div>
+
+  <!-- Toast Notification Shelf -->
+  <div id="toast-container" class="toast-shelf" aria-live="polite"></div>
+
+  <!-- Royal Festival Header -->
+  <header class="royal-header">
+    <div class="header-inner">
+      <div class="brand-block">
+        <span class="brand-diya" aria-hidden="true">🪔</span>
+        <div class="brand-text">
+          <h1 class="brand-title">Mystery of the Eternal Diya 🪔 by Subin Khullar</h1>
+          <span class="brand-sub">Royal Festival Detective Suite • Kingdom of Ayodhya</span>
+        </div>
+      </div>
+
+      <div class="header-quick-stats">
+        <span class="stat-pill" title="Current Detective Level"><span class="pill-icon">👑</span> <span id="hdr-level">Lvl 1</span></span>
+        <span class="stat-pill" title="Festival Coins"><span class="pill-icon">💰</span> <span id="hdr-coins">150</span></span>
+        <span class="stat-pill" title="Flame Fragments Recovered"><span class="pill-icon">🔥</span> <span id="hdr-fragments">0/7</span></span>
+      </div>
+
+      <button id="mobile-menu-btn" class="nav-toggle-btn" aria-label="Toggle navigation menu">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+      </button>
+    </div>
+
+    <!-- Responsive Navigation Bar -->
+    <nav id="main-nav" class="nav-bar">
+      <ul class="nav-list">
+        <li><button class="nav-link active" data-section="sec-home">🏠 Home</button></li>
+        <li><button class="nav-link" data-section="sec-investigation">🕵 Investigation</button></li>
+        <li><button class="nav-link" data-section="sec-escape">🧩 Escape Rooms</button></li>
+        <li><button class="nav-link" data-section="sec-fragments">🪔 Flame Fragments</button></li>
+        <li><button class="nav-link" data-section="sec-evidence">📜 Evidence Board</button></li>
+        <li><button class="nav-link" data-section="sec-suspects">👤 Suspects</button></li>
+        <li><button class="nav-link" data-section="sec-inventory">🎒 Inventory</button></li>
+        <li><button class="nav-link" data-section="sec-achievements">🏆 Achievements</button></li>
+        <li><button class="nav-link" data-section="sec-statistics">📈 Statistics</button></li>
+        <li><button class="nav-link" data-section="sec-analytics">📊 Analytics</button></li>
+        <li><button class="nav-link" data-section="sec-save">💾 Save Manager</button></li>
+        <li><button class="nav-link" data-section="sec-settings">⚙ Settings</button></li>
+        <li><button class="nav-link" data-section="sec-help">❓ Help</button></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Main Content Layout -->
+  <main class="content-shell">
+    
+    <!-- SECTION 1: HOME -->
+    <section id="sec-home" class="game-section active">
+      <div class="hero-banner">
+        <div class="hero-diya-glow">🪔</div>
+        <h2 class="hero-headline">Mystery of the Eternal Diya 🪔 by Subin Khullar</h2>
+        <p class="hero-subtext">
+          On the holy eve of deep Diwali, darkness creeps toward the sanctified city of Ayodhya. The sacred Eternal Diya, burning unbroken since ancient ages to shower prosperity across the realm, has mysteriously disappeared from the Golden Sanctum. As the appointed Royal Festival Detective, your duty is to search 15 royal districts, interrogate 8 high-ranking suspects, crack mystery escape chambers, reassemble the 7 shattered Flame Fragments, and restore the Eternal Diya before midnight Diwali bells chime!
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-large" id="hero-btn-begin">🕵 Begin Investigation</button>
+          <button class="btn btn-secondary btn-large" id="hero-btn-profile">👤 Detective Dossier</button>
+          <button class="btn btn-accent btn-large" id="hero-btn-daily">🎁 Daily Diwali Blessing</button>
+        </div>
+      </div>
+
+      <!-- Live Detective Status Banner -->
+      <div class="card card-ornate status-grid-card">
+        <div class="status-grid">
+          <div class="status-tile">
+            <span class="status-icon" id="dash-avatar">🕵</span>
+            <div class="status-info">
+              <span class="status-label">Detective</span>
+              <strong id="dash-name" class="status-value">Kavi the Vigilant</strong>
+            </div>
+          </div>
+          <div class="status-tile">
+            <span class="status-icon">🎖</span>
+            <div class="status-info">
+              <span class="status-label">Mystery Rank</span>
+              <strong id="dash-rank" class="status-value">Palace Novice</strong>
+            </div>
+          </div>
+          <div class="status-tile">
+            <span class="status-icon">🌟</span>
+            <div class="status-info">
+              <span class="status-label">Total XP</span>
+              <strong id="dash-xp" class="status-value">0 XP</strong>
+            </div>
+          </div>
+          <div class="status-tile">
+            <span class="status-icon">🔥</span>
+            <div class="status-info">
+              <span class="status-label">Sanctum Restoration</span>
+              <strong id="dash-completion" class="status-value">0%</strong>
+            </div>
+          </div>
+          <div class="status-tile">
+            <span class="status-icon">📅</span>
+            <div class="status-info">
+              <span class="status-label">Login Streak</span>
+              <strong id="dash-streak" class="status-value">1 Day</strong>
+            </div>
+          </div>
+        </div>
+        <div class="xp-bar-wrapper">
+          <div class="xp-bar-meta">
+            <span id="xp-current-label">XP Progress: 0 / 100</span>
+            <span id="xp-next-label">Next Rank: Ayodhya Scout</span>
+          </div>
+          <div class="progress-track">
+            <div id="xp-progress-fill" class="progress-fill" style="width: 0%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Adventure Modules -->
+      <div class="module-row">
+        <div class="card module-card">
+          <div class="module-header">
+            <span class="module-symbol">🗺</span>
+            <h3>Explore 15 Districts</h3>
+          </div>
+          <p>Unearth hidden clues, sacred festival lore, and rare collectibles from Ayodhya Palace to the Whispering Forest.</p>
+          <button class="btn btn-outline" data-jump="sec-investigation">Scout Locations</button>
+        </div>
+
+        <div class="card module-card">
+          <div class="module-header">
+            <span class="module-symbol">🧩</span>
+            <h3>Chamber Escape Rooms</h3>
+          </div>
+          <p>Challenge pattern locks, number safes, symbol sequences, 200 festival riddles, and memory vaults.</p>
+          <button class="btn btn-outline" data-jump="sec-escape">Enter Chambers</button>
+        </div>
+
+        <div class="card module-card">
+          <div class="module-header">
+            <span class="module-symbol">⚖</span>
+            <h3>Interrogate Suspects</h3>
+          </div>
+          <p>Scrutinize the Merchant, Guard, Priest, Inventor, and others. Cross-check alibis against your Evidence Board.</p>
+          <button class="btn btn-outline" data-jump="sec-suspects">Cross-Examine</button>
+        </div>
+      </div>
+
+      <!-- Case Log / Latest Updates -->
+      <div class="card card-ornate">
+        <div class="card-header">
+          <h3>📜 Royal Gazette & Case Log</h3>
+          <button class="btn btn-sm" id="btn-refresh-log">Clear Old Log</button>
+        </div>
+        <div id="live-case-feed" class="case-feed-list"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 2: INVESTIGATION (15 LOCATIONS) -->
+    <section id="sec-investigation" class="game-section">
+      <div class="section-hero">
+        <h2>🕵 Kingdom Investigation: 15 Royal Districts</h2>
+        <p>Survey locations across Ayodhya. Every search uncovers vital clues, festival coins, and legendary artifacts.</p>
+      </div>
+
+      <div class="filter-bar">
+        <div class="search-input-box">
+          <span class="input-icon">🔍</span>
+          <input type="text" id="loc-search-input" placeholder="Search districts, clues, or loot...">
+        </div>
+        <div class="filter-controls">
+          <select id="loc-filter-status" class="select-box">
+            <option value="all">All Statuses</option>
+            <option value="unvisited">Unvisited</option>
+            <option value="searched">Searched</option>
+            <option value="cleared">Flame Recovered</option>
+          </select>
+          <select id="loc-sort-order" class="select-box">
+            <option value="name">Sort: District Name</option>
+            <option value="threat">Sort: Danger Level</option>
+            <option value="xp">Sort: XP Yield</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="locations-grid" class="locations-grid"></div>
+    </section>
+
+    <!-- SECTION 3: ESCAPE ROOMS & PUZZLES -->
+    <section id="sec-escape" class="game-section">
+      <div class="section-hero">
+        <h2>🧩 Escape Room Vaults & Festival Puzzles</h2>
+        <p>Bypass ancient Royal Security Seals. Solve mathematical safes, symbol sequences, memory grids, and festival riddles.</p>
+      </div>
+
+      <div class="puzzle-tabs-shelf">
+        <button class="tab-btn active" data-ptab="tab-vault">🔒 Vault Safes</button>
+        <button class="tab-btn" data-ptab="tab-memory">🎴 Rangoli Memory</button>
+        <button class="tab-btn" data-ptab="tab-riddles">📜 200 Riddles Engine</button>
+        <button class="tab-btn" data-ptab="tab-logic">⚖ Logic Chamber</button>
+      </div>
+
+      <!-- Tab 1: Vault Safe -->
+      <div id="tab-vault" class="puzzle-subview active">
+        <div class="card card-ornate vault-chamber">
+          <div class="chamber-header">
+            <div class="chamber-badge">Chamber Level: <span id="vault-diff-label">Normal</span></div>
+            <h3 id="vault-title">The Royal Treasury Combination Safe</h3>
+            <p id="vault-clue-text" class="clue-lead">Loading safe parameters...</p>
+          </div>
+
+          <div class="safe-display">
+            <div class="safe-dial-row" id="safe-dials-container"></div>
+          </div>
+
+          <div class="vault-actions">
+            <button class="btn btn-primary" id="btn-submit-safe">🔓 Attempt Safe Combination</button>
+            <button class="btn btn-secondary" id="btn-new-safe">🔄 Generate New Safe</button>
+            <button class="btn btn-accent" id="btn-safe-hint">💡 Consult Detective Lens</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 2: Memory Match -->
+      <div id="tab-memory" class="puzzle-subview">
+        <div class="card card-ornate">
+          <div class="memory-meta">
+            <div><strong>Pairs Discovered:</strong> <span id="memory-pairs-count">0 / 8</span></div>
+            <div><strong>Moves Made:</strong> <span id="memory-moves-count">0</span></div>
+            <button class="btn btn-sm btn-outline" id="btn-reset-memory">Reset Board</button>
+          </div>
+          <div id="memory-grid" class="memory-grid"></div>
+        </div>
+      </div>
+
+      <!-- Tab 3: Riddle Engine (200 Riddles) -->
+      <div id="tab-riddles" class="puzzle-subview">
+        <div class="card card-ornate riddle-stage">
+          <div class="riddle-tier-selector">
+            <span>Riddle Difficulty:</span>
+            <button class="chip chip-active" data-rtier="easy">Easy (50)</button>
+            <button class="chip" data-rtier="medium">Medium (50)</button>
+            <button class="chip" data-rtier="hard">Hard (50)</button>
+            <button class="chip" data-rtier="expert">Expert (50)</button>
+          </div>
+
+          <div class="riddle-card-body">
+            <div class="riddle-number-tag" id="riddle-id-tag">Riddle #1 of 200</div>
+            <blockquote id="riddle-prompt-text" class="riddle-quote">Loading sacred verse...</blockquote>
+            
+            <div class="riddle-options-list" id="riddle-options-container"></div>
+
+            <div class="riddle-footer-meta">
+              <span>Riddles Solved: <strong id="riddles-solved-counter">0</strong></span>
+              <span>Riddle Streak: <strong id="riddles-streak-counter">0</strong></span>
+              <button class="btn btn-sm btn-secondary" id="btn-next-riddle">Next Riddle ➡</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab 4: Logic Chamber -->
+      <div id="tab-logic" class="puzzle-subview">
+        <div class="card card-ornate">
+          <div class="chamber-header">
+            <h3>⚖ Diya Weight & Sequence Balancer</h3>
+            <p>Four sacred festival oils must be arranged in exact density sequence to balance the sanctum scale.</p>
+          </div>
+          <div id="logic-puzzle-stage" class="logic-puzzle-stage"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 4: FLAME FRAGMENTS -->
+    <section id="sec-fragments" class="game-section">
+      <div class="section-hero">
+        <h2>🪔 The 7 Sacred Flame Fragments</h2>
+        <p>The Eternal Diya was split into seven incandescent embers. Recover all seven from across Ayodhya to unlock the Final Royal Accusation!</p>
+      </div>
+
+      <div class="fragments-altar card card-ornate">
+        <div class="altar-visual">
+          <div class="altar-diya-center" id="altar-core-diya">
+            <span class="altar-flame" id="altar-core-flame">🪔</span>
+            <span class="altar-caption" id="altar-flame-status">Sanctum Dimmed (0/7 Relics)</span>
+          </div>
+        </div>
+
+        <div id="fragments-shelf" class="fragments-shelf"></div>
+
+        <div class="final-verdict-banner" id="verdict-banner">
+          <h3>👑 Final Accusation Chamber Locked</h3>
+          <p>Collect all 7 fragments through district quests, escape chambers, and interrogations to initiate the royal trial.</p>
+          <button class="btn btn-gold btn-large" id="btn-summon-tribunal" disabled>Initiate Royal Accusation</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 5: EVIDENCE BOARD -->
+    <section id="sec-evidence" class="game-section">
+      <div class="section-hero">
+        <h2>📜 Royal Evidence & Clue Board</h2>
+        <p>Pin notes, connect findings, mark vital clues, and deduce the traitor who dared extinguish the kingdom's divine light.</p>
+      </div>
+
+      <div class="evidence-toolbar">
+        <div class="search-input-box">
+          <span class="input-icon">🔍</span>
+          <input type="text" id="evidence-search" placeholder="Filter clues, witness words, artifacts...">
+        </div>
+        <div class="filter-controls">
+          <select id="evidence-filter-tag" class="select-box">
+            <option value="all">All Evidence Types</option>
+            <option value="Physical">Physical Relics</option>
+            <option value="Statement">Witness Statements</option>
+            <option value="Alibi">Suspect Alibis</option>
+            <option value="Secret">Hidden Secrets</option>
+          </select>
+          <button class="btn btn-primary" id="btn-add-detective-note">➕ Add Detective Note</button>
+        </div>
+      </div>
+
+      <div id="evidence-grid" class="evidence-grid"></div>
+    </section>
+
+    <!-- SECTION 6: SUSPECTS -->
+    <section id="sec-suspects" class="game-section">
+      <div class="section-hero">
+        <h2>👤 Suspect Lineup & Interrogation Wing</h2>
+        <p>Eight high-profile dignitaries and townspeople were present in the sanctum corridor before the heist. Cross-examine their claims.</p>
+      </div>
+
+      <div class="suspects-grid" id="suspects-card-grid"></div>
+    </section>
+
+    <!-- SECTION 7: INVENTORY -->
+    <section id="sec-inventory" class="game-section">
+      <div class="section-hero">
+        <h2>🎒 Royal Detective Satchel & Collectibles</h2>
+        <p>Rare festival artifacts, keys, sacred oils, and temple blessings found on your journey.</p>
+      </div>
+
+      <div class="filter-bar">
+        <div class="filter-controls">
+          <button class="chip chip-active" data-irarity="all">All Rarities</button>
+          <button class="chip" data-irarity="Common">Common</button>
+          <button class="chip" data-irarity="Rare">Rare</button>
+          <button class="chip" data-irarity="Epic">Epic</button>
+          <button class="chip" data-irarity="Legendary">Legendary</button>
+        </div>
+        <span class="inventory-counter-text" id="inventory-counter-label">Items Owned: 0</span>
+      </div>
+
+      <div id="inventory-grid" class="inventory-grid"></div>
+    </section>
+
+    <!-- SECTION 8: ACHIEVEMENTS (75 BADGES) -->
+    <section id="sec-achievements" class="game-section">
+      <div class="section-hero">
+        <h2>🏆 Royal Festival Accolades (75 Badges)</h2>
+        <p>Prove your supremacy across investigation, puzzle cracking, riddle solving, festival devotion, and time challenges.</p>
+      </div>
+
+      <div class="achieve-stats-card card card-ornate">
+        <div class="achieve-summary">
+          <div>
+            <span class="achieve-big-number" id="achieve-unlocked-count">0 / 75</span>
+            <span class="status-label">Achievements Claimed</span>
+          </div>
+          <div class="progress-track" style="flex: 1; margin: 0 1.5rem;">
+            <div id="achieve-progress-bar" class="progress-fill" style="width: 0%;"></div>
+          </div>
+          <div>
+            <span class="achieve-big-number" id="achieve-percent-label">0%</span>
+            <span class="status-label">Total Completed</span>
+          </div>
+        </div>
+
+        <div class="category-chips-row" id="achieve-category-chips">
+          <button class="chip chip-active" data-acat="all">All Badges</button>
+          <button class="chip" data-acat="Investigation">Investigation</button>
+          <button class="chip" data-acat="Exploration">Exploration</button>
+          <button class="chip" data-acat="Collection">Collection</button>
+          <button class="chip" data-acat="Escape Rooms">Escape Rooms</button>
+          <button class="chip" data-acat="Riddles">Riddles</button>
+          <button class="chip" data-acat="Puzzles">Puzzles</button>
+          <button class="chip" data-acat="Festival Mastery">Festival Mastery</button>
+          <button class="chip" data-acat="Time Challenges">Time Challenges</button>
+          <button class="chip" data-acat="Hidden Secrets">Hidden Secrets</button>
+        </div>
+      </div>
+
+      <div id="achievements-card-shelf" class="achievements-card-shelf"></div>
+    </section>
+
+    <!-- SECTION 9: STATISTICS -->
+    <section id="sec-statistics" class="game-section">
+      <div class="section-hero">
+        <h2>📈 Royal Investigation Statistics</h2>
+        <p>Comprehensive tracking of all actions, deductions, clues discovered, and time invested in Ayodhya.</p>
+      </div>
+
+      <div class="stats-table-wrapper card card-ornate">
+        <div class="stats-table-grid" id="stats-table-grid"></div>
+      </div>
+    </section>
+
+    <!-- SECTION 10: ANALYTICS (PURE CSS/HTML CHARTS) -->
+    <section id="sec-analytics" class="game-section">
+      <div class="section-hero">
+        <h2>📊 Detective Performance Analytics</h2>
+        <p>Pure visual data analytics generated entirely with CSS layout techniques and standard HTML markup.</p>
+      </div>
+
+      <div class="analytics-layout">
+        <!-- Competency Ratings -->
+        <div class="card card-ornate">
+          <div class="card-header">
+            <h3>🎯 Detective Competency Ratings</h3>
+          </div>
+          <div class="css-chart-bar-list" id="analytics-skills-list"></div>
+        </div>
+
+        <!-- Districts Exploration Progress -->
+        <div class="card card-ornate">
+          <div class="card-header">
+            <h3>🗺 District Reconnaissance Distribution</h3>
+          </div>
+          <div class="css-bar-columns" id="analytics-districts-columns"></div>
+        </div>
+
+        <!-- 28-Day Investigation Activity Heatmap -->
+        <div class="card card-ornate full-width-card">
+          <div class="card-header">
+            <h3>📅 Ayodhya Patrolling Heatmap (Last 28 Days)</h3>
+            <span class="status-label">Activity intensity based on clues, searches, and riddles</span>
+          </div>
+          <div class="heatmap-grid" id="analytics-heatmap-grid"></div>
+        </div>
+
+        <!-- Category Completion Breakdown -->
+        <div class="card card-ornate">
+          <div class="card-header">
+            <h3>🏆 Accolades Completion Breakdown</h3>
+          </div>
+          <div class="css-category-progress" id="analytics-category-progress"></div>
+        </div>
+
+        <!-- Resource & Wealth Flow -->
+        <div class="card card-ornate">
+          <div class="card-header">
+            <h3>💰 Treasury & Relic Influx</h3>
+          </div>
+          <div class="metric-big-pairs" id="analytics-wealth-pairs"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 11: SAVE MANAGER & DATA IMPORT/EXPORT -->
+    <section id="sec-save" class="game-section">
+      <div class="section-hero">
+        <h2>💾 Save System & Archival Vault</h2>
+        <p>Safeguard your royal progress. Manage auto-saves, create checkpoints, or download your dossier as pure JSON files.</p>
+      </div>
+
+      <div class="save-controls-grid">
+        <div class="card card-ornate">
+          <div class="card-header">
+            <h3>⚡ Quick & Manual Saves</h3>
+          </div>
+          <p>Local state is continuously synchronized to browser memory. You can trigger manual checkpoints at any pivotal moment.</p>
+          <div class="action-btn-stack">
+            <button class="btn btn-primary" id="btn-manual-save">💾 Create Manual Save</button>
+            <button class="btn btn-secondary" id="btn-quick-load">🔄 Load Last Checkpoint</button>
+            <button class="btn btn-outline" id="btn-backup-save">📦 Generate In-Memory Backup</button>
+            <button class="btn btn-danger" id="btn-reset-save">⚠️ Factory Reset Save Data</button>
+          </div>
+          <div class="save-timestamp" id="last-save-time-label">Last Saved: Just now</div>
+        </div>
+
+        <div class="card card-ornate">
+          <div class="card-header">
+            <h3>📥 Export Dossier Files</h3>
+          </div>
+          <p>Export individual segments or the complete royal dossier to disk as downloadable JSON.</p>
+          <div class="action-btn-stack">
+            <button class="btn btn-outline" id="btn-export-all">📥 Export Complete Save (.json)</button>
+            <button class="btn btn-outline" id="btn-export-profile">👤 Export Detective Profile</button>
+            <button class="btn btn-outline" id="btn-export-evidence">📜 Export Evidence Ledger</button>
+            <button class="btn btn-outline" id="btn-export-inventory">🎒 Export Satchel Inventory</button>
+            <button class="btn btn-outline" id="btn-export-stats">📈 Export Statistics Sheet</button>
+          </div>
+        </div>
+
+        <div class="card card-ornate full-width-card">
+          <div class="card-header">
+            <h3>📤 Import Royal Save File</h3>
+          </div>
+          <p>Restore your saved progress from an authentic save file. The file is validated before updating your local state.</p>
+          <div class="import-dropzone">
+            <input type="file" id="import-file-input" accept=".json" class="file-input-hidden">
+            <label for="import-file-input" class="file-drop-label">
+              <span class="drop-icon">📁</span>
+              <span>Click to select or drop a Royal Save JSON file</span>
+            </label>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 12: SETTINGS -->
+    <section id="sec-settings" class="game-section">
+      <div class="section-hero">
+        <h2>⚙ Royal Settings & Preferences</h2>
+        <p>Customize your visual ambiance, audio feedback, difficulty tiers, and Gemini Intelligence endpoints.</p>
+      </div>
+
+      <div class="settings-grid">
+        <!-- Appearance Settings -->
+        <div class="card card-ornate">
+          <div class="card-header">
+            <h3>🎨 Ambiance & Festival Themes</h3>
+          </div>
+          <div class="setting-item">
+            <label for="setting-theme-select">Visual Theme Ambiance:</label>
+            <select id="setting-theme-select" class="select-box">
+              <option value="royal-diya">1. Royal Diwali (Gold + Purple)</option>
+              <option value="festival-lights">2. Festival of Lights (Orange + Yellow + Red)</option>
+              <option value="midnight-mystery">3. Midnight Mystery (Dark Blue + Gold)</option>
+              <option value="emerald-palace">4. Emerald Palace (Green + Gold)</option>
+              <option value="lotus-celebration">5. Lotus Celebration (Pink + Gold)</option>
+              <option value="classic-heritage">6. Classic Heritage (Brown + Cream)</option>
+            </select>
+          </div>
+
+          <div class="setting-item">
+            <label for="setting-font-size">Interface Font Scale:</label>
+            <select id="setting-font-size" class="select-box">
+              <option value="normal">Standard Heritage</option>
+              <option value="large">Elevated Magnification</option>
+              <option value="xlarge">Grand Royal Scale</option>
+            </select>
+          </div>
+
+          <div class="setting-item toggle-row">
+            <label for="setting-sparkles-toggle">Floating Sparkle Particles:</label>
+            <input type="checkbox" id="setting-sparkles-toggle" checked class="switch-toggle">
+          </div>
+        </div>
+
+        <!-- Gameplay Settings -->
+        <div class="card card-ornate">
+          <div class="card-header">
+            <h3>🎮 Investigation Mechanics</h3>
+          </div>
+          <div class="setting-item">
+            <label for="setting-difficulty">Investigation Difficulty:</label>
+            <select id="setting-difficulty" class="select-box">
+              <option value="easy">Ayodhya Apprenticed (Generous clues & hints)</option>
+              <option value="normal" selected>Festival Inspector (Standard challenge)</option>
+              <option value="hard">Grand Court Master (Subtle clues, strict puzzles)</option>
+              <option value="expert">Festival Master (No automatic alibi warnings)</option>
+            </select>
+          </div>
+
+          <div class="setting-item toggle-row">
+            <label for="setting-audio-toggle">Synthesized Sound Effects:</label>
+            <input type="checkbox" id="setting-audio-toggle" checked class="switch-toggle">
+          </div>
+
+          <div class="setting-item toggle-row">
+            <label for="setting-hints-toggle">Display Detective Deductions & Hints:</label>
+            <input type="checkbox" id="setting-hints-toggle" checked class="switch-toggle">
+          </div>
+
+          <div class="setting-item toggle-row">
+            <label for="setting-notifications-toggle">Show Banner Notifications:</label>
+            <input type="checkbox" id="setting-notifications-toggle" checked class="switch-toggle">
+          </div>
+        </div>
+
+        <!-- Gemini API Integration Config -->
+        <div class="card card-ornate full-width-card">
+          <div class="card-header">
+            <h3>✨ Gemini AI Oracle Integration</h3>
+          </div>
+          <p>
+            Connect the Google Gemini API to produce infinite dynamic suspect interrogations, situational mystery seeds, procedural riddles, and bespoke case endings. Leave blank to rely entirely on the offline local generation engine.
+          </p>
+          <div class="setting-item">
+            <label for="setting-gemini-key">Gemini API Key:</label>
+            <div class="api-key-row">
+              <input type="password" id="setting-gemini-key" placeholder="Enter your Gemini API key (AIzaSy...)" class="input-text">
+              <button class="btn btn-secondary" id="btn-test-gemini">📡 Test Oracle Connection</button>
+            </div>
+            <span class="hint-caption">Your key is stored strictly within browser localStorage and never transmitted elsewhere.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION 13: HELP -->
+    <section id="sec-help" class="game-section">
+      <div class="section-hero">
+        <h2>❓ Detective Handbook & Regulations</h2>
+        <p>Instructions, tactical tips, and festival lore for your Ayodhya mystery adventure.</p>
+      </div>
+
+      <div class="help-accordion-shelf">
+        <div class="card card-ornate help-card">
+          <h3>🪔 1. The Core Objective</h3>
+          <p>
+            The holy Eternal Diya was stolen from the royal sanctum on Dhanteras eve. Darkness threatens the festival of Diwali. Your task is to investigate 15 locations, interview 8 suspects, solve escape chambers to gather the 7 Flame Fragments, and accuse the true culprit before the festival concludes.
+          </p>
+        </div>
+
+        <div class="card card-ornate help-card">
+          <h3>🔍 2. Searching Districts & Gathering Relics</h3>
+          <p>
+            Visit the Investigation section and choose any unlocked district. Searching triggers unique events, yields coins, clues, and rare satchel items. Re-investigating districts may uncover deeper secrets.
+          </p>
+        </div>
+
+        <div class="card card-ornate help-card">
+          <h3>🔒 3. Escape Chambers & Riddles</h3>
+          <p>
+            Crack combinations, play Rangoli memory pairs, solve logic puzzles, and test your wit with 200 bespoke festival riddles. Correct answers grant coins, XP, and critical Evidence Board items.
+          </p>
+        </div>
+
+        <div class="card card-ornate help-card">
+          <h3>👑 4. The 5 Endings</h3>
+          <p>
+            Once all 7 Flame Fragments are unified, the Final Accusation Chamber unlocks. Accusing the correct culprit with sufficient evidence unlocks the <strong>Master Detective Ending</strong> or <strong>Festival Savior Ending</strong>. Reckless accusations lead to the <strong>Wrong Accusation Ending</strong> or <strong>Partial Success Ending</strong>.
+          </p>
+        </div>
+
+        <div class="card card-ornate help-card">
+          <h3>📱 5. Progressive Web App (PWA) Offline Play</h3>
+          <p>
+            This application is a 100% standalone PWA. Install it on your home screen or desktop. It functions seamlessly without an active internet connection using integrated offline state caches and synthesized audio.
+          </p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- MODAL: PROFILE DOSSIER -->
+  <div id="modal-profile" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-box card-ornate" role="dialog" aria-modal="true" aria-labelledby="modal-profile-title">
+      <div class="modal-header">
+        <h3 id="modal-profile-title">👤 Royal Detective Dossier</h3>
+        <button class="modal-close-btn" data-close-modal="modal-profile" aria-label="Close modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-item">
+          <label for="prof-input-name">Detective Moniker:</label>
+          <input type="text" id="prof-input-name" class="input-text" maxlength="30" value="Kavi the Vigilant">
+        </div>
+
+        <div class="setting-item">
+          <label>Avatar Sigil:</label>
+          <div class="avatar-sigil-grid" id="avatar-sigil-picker">
+            <button class="avatar-option active" data-sigil="🕵">🕵</button>
+            <button class="avatar-option" data-sigil="👑">👑</button>
+            <button class="avatar-option" data-sigil="🏮">🏮</button>
+            <button class="avatar-option" data-sigil="🔥">🔥</button>
+            <button class="avatar-option" data-sigil="🪔">🪔</button>
+            <button class="avatar-option" data-sigil="🦉">🦉</button>
+            <button class="avatar-option" data-sigil="🐅">🐅</button>
+            <button class="avatar-option" data-sigil="🐘">🐘</button>
+            <button class="avatar-option" data-sigil="🏰">🏰</button>
+          </div>
+        </div>
+
+        <div class="setting-item">
+          <label for="prof-select-difficulty">Investigation Difficulty:</label>
+          <select id="prof-select-difficulty" class="select-box">
+            <option value="easy">Apprentice Detective</option>
+            <option value="normal" selected>Festival Inspector</option>
+            <option value="hard">Master Inquisitor</option>
+            <option value="expert">Royal Court Detective</option>
+          </select>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="btn-save-profile">Save Dossier</button>
+        <button class="btn btn-outline" data-close-modal="modal-profile">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: INTERROGATION / SUSPECT -->
+  <div id="modal-interrogation" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-box card-ornate modal-wide" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h3 id="interrogate-modal-title">👤 Interrogating Suspect</h3>
+        <button class="modal-close-btn" data-close-modal="modal-interrogation">&times;</button>
+      </div>
+      <div class="modal-body interrogation-body">
+        <div class="interrogate-bio-column">
+          <div class="suspect-avatar-big" id="interrogate-avatar">👤</div>
+          <h4 id="interrogate-name">Suspect Name</h4>
+          <span class="suspect-role" id="interrogate-role">Occupation</span>
+          <div class="suspect-metric-pills">
+            <span class="badge" id="interrogate-suspicion">Suspicion: 50%</span>
+            <span class="badge" id="interrogate-trust">Trust: 40%</span>
+          </div>
+          <p class="alibi-quote" id="interrogate-alibi">"I was inspecting the palace fireworks."</p>
+
+          <div class="interrogate-actions-vertical">
+            <button class="btn btn-sm btn-outline" id="btn-toggle-suspect-mark">🚩 Mark as Chief Suspect</button>
+            <button class="btn btn-sm btn-outline" id="btn-clear-suspect">🕊 Clear of Suspicion</button>
+          </div>
+        </div>
+
+        <div class="interrogate-chat-column">
+          <div class="chat-dialogue-transcript" id="interrogate-transcript"></div>
+
+          <div class="interrogate-questions-shelf" id="interrogate-questions-shelf"></div>
+
+          <div class="ai-oracle-prompt-row">
+            <input type="text" id="interrogate-custom-input" placeholder="Type a custom inquiry for Gemini Oracle..." class="input-text">
+            <button class="btn btn-primary btn-sm" id="btn-ask-custom-oracle">✨ Ask AI</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-outline" data-close-modal="modal-interrogation">Conclude Questioning</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: NOTE CREATION -->
+  <div id="modal-note" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-box card-ornate" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h3>📝 Add Detective Ledger Note</h3>
+        <button class="modal-close-btn" data-close-modal="modal-note">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-item">
+          <label for="note-title-input">Clue / Note Title:</label>
+          <input type="text" id="note-title-input" class="input-text" placeholder="e.g. Broken Silver Chain">
+        </div>
+        <div class="setting-item">
+          <label for="note-category-select">Evidence Category:</label>
+          <select id="note-category-select" class="select-box">
+            <option value="Physical">Physical Relic</option>
+            <option value="Statement">Witness Statement</option>
+            <option value="Alibi">Suspect Alibi</option>
+            <option value="Secret">Hidden Secret</option>
+          </select>
+        </div>
+        <div class="setting-item">
+          <label for="note-desc-input">Observations & Notes:</label>
+          <textarea id="note-desc-input" class="input-text input-textarea" rows="4" placeholder="Detail your deductions..."></textarea>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="btn-save-note">Pin Note to Board</button>
+        <button class="btn btn-outline" data-close-modal="modal-note">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: FINAL ACCUSATION TRIBUNAL -->
+  <div id="modal-tribunal" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-box card-ornate modal-wide" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h3>⚖ The Royal Diwali Accusation Tribunal</h3>
+        <button class="modal-close-btn" data-close-modal="modal-tribunal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p class="tribunal-lead">
+          The 7 Flame Fragments burn brightly before the High Council. You must designate the architect of the theft, supply the primary motive, and present the decisive evidence.
+        </p>
+
+        <div class="tribunal-form">
+          <div class="setting-item">
+            <label for="tribunal-suspect-select">Accuse Culprit:</label>
+            <select id="tribunal-suspect-select" class="select-box"></select>
+          </div>
+
+          <div class="setting-item">
+            <label for="tribunal-motive-select">Identify Motive:</label>
+            <select id="tribunal-motive-select" class="select-box">
+              <option value="greed">Financial Greed & Black Market Sale</option>
+              <option value="power">Political Coup to Destabilize the Kingdom</option>
+              <option value="zealotry">Misguided Religious Fanaticism</option>
+              <option value="revenge">Vengeance for a Past Royal Judgment</option>
+              <option value="experiment">Dangerous Scientific Ambition</option>
+            </select>
+          </div>
+
+          <div class="setting-item">
+            <label for="tribunal-evidence-select">Decisive Evidence Item:</label>
+            <select id="tribunal-evidence-select" class="select-box"></select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-gold btn-large" id="btn-execute-verdict">👑 Deliver Final Verdict</button>
+        <button class="btn btn-outline" data-close-modal="modal-tribunal">Retreat & Gather More Clues</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODAL: ENDING VERDICT -->
+  <div id="modal-ending" class="modal-backdrop" aria-hidden="true">
+    <div class="modal-box card-ornate modal-wide modal-center" role="dialog" aria-modal="true">
+      <div class="modal-header">
+        <h3 id="ending-modal-title">Diwali Verdict Proclaimed</h3>
+      </div>
+      <div class="modal-body ending-body">
+        <div class="ending-symbol-display" id="ending-symbol">🪔</div>
+        <h2 id="ending-title" class="ending-h2">Master Detective Ending</h2>
+        <div id="ending-story-text" class="ending-narrative"></div>
+        <div class="ending-stats-summary" id="ending-stats-box"></div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" id="btn-continue-post-ending">Continue Patrolling Ayodhya</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Royal Footer -->
+  <footer class="royal-footer">
+    <div class="footer-content">
+      <div class="footer-diya-flame">✨ 🪔 ✨</div>
+      <p class="footer-copy">(C) 2026 Subin Khullar. All rights reserved.</p>
+      <p class="footer-sub">Mystery of the Eternal Diya 🪔 by Subin Khullar • Designed with Royal Festival Ambiance</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
