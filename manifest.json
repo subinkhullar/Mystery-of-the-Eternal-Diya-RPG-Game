@@ -1,0 +1,50 @@
+{
+  "name": "Mystery of the Eternal Diya 🪔 by Subin Khullar",
+  "short_name": "Eternal Diya",
+  "description": "Diwali detective mystery RPG, treasure hunt, and escape room adventure by Subin Khullar.",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "any",
+  "theme_color": "#800020",
+  "background_color": "#12031a",
+  "categories": [
+    "games",
+    "entertainment",
+    "puzzle"
+  ],
+  "icons": [
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪔</text></svg>",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Patrol Districts",
+      "short_name": "Districts",
+      "description": "Search Ayodhya districts for clues and relics",
+      "url": "./index.html#sec-investigation"
+    },
+    {
+      "name": "Escape Vaults",
+      "short_name": "Escape Rooms",
+      "description": "Challenge vault safes and Rangoli puzzles",
+      "url": "./index.html#sec-escape"
+    },
+    {
+      "name": "Flame Fragments",
+      "short_name": "Fragments",
+      "description": "Examine the 7 recovered sacred flame embers",
+      "url": "./index.html#sec-fragments"
+    },
+    {
+      "name": "Evidence Board",
+      "short_name": "Evidence",
+      "description": "Inspect witness statements and clues",
+      "url": "./index.html#sec-evidence"
+    }
+  ]
+}
