@@ -767,7 +767,7 @@ class AudioSynth {
 class GeminiOracle {
   constructor() {
     try {
-      this.apiKey = localStorage.getItem(GEMINI_STORAGE_KEY) || 'AIzaSyAqNiXvJvNYYCeUkckrah1KBnSbTAW-Wjc';
+      this.apiKey = localStorage.getItem(GEMINI_STORAGE_KEY) || '';
     } catch (e) {
       this.apiKey = '';
     }
