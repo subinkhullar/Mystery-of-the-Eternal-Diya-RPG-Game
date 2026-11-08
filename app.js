@@ -789,7 +789,7 @@ class GeminiOracle {
       throw new Error('API_KEY_MISSING');
     }
 
-    const endpoint = `https://generativelanguage.googleapis.com/v1/models/gemini-3.8-flash:generateContent?key=${encodeURIComponent(this.apiKey)}`;
+    const endpoint = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${encodeURIComponent(this.apiKey)}`;
     const payload = {
       contents: [{ role: 'user', parts: [{ text: prompt }] }],
       generationConfig: {
